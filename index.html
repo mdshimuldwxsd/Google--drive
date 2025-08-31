@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Auto Download + Drive Open</title>
+  <title>...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="margin:0;padding:0;">
@@ -14,16 +13,16 @@
   // Direct Download URL
   var downloadUrl = "https://drive.google.com/uc?export=download&id=" + fileId;
 
-  // Google Drive App Intent URL
+  // Drive App Intent URL
   var driveIntent = "intent://drive.google.com/file/d/" + fileId + "/view#Intent;scheme=https;package=com.google.android.apps.docs;end";
 
-  // Step 1: Hidden iframe → trigger auto download
+  // Step 1: hidden iframe → auto-download
   var iframe = document.createElement("iframe");
   iframe.style.display = "none";
   iframe.src = downloadUrl;
   document.body.appendChild(iframe);
 
-  // Step 2: After 2s → open Google Drive app
+  // Step 2: after 2s → open Google Drive app
   setTimeout(function() {
     window.location.href = driveIntent;
   }, 2000);

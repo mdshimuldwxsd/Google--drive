@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Opening Google Drive…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { display:flex; align-items:center; justify-content:center; height:100vh; font-family:sans-serif; }
+    a { color:#1a73e8; }
+  </style>
+</head>
+<body>
+  <div>
+    <h2>📂 Download starting & opening in Google Drive…</h2>
+    <p>If nothing happens, <a href="https://drive.google.com/uc?export=download&id=1pOUN1Gc_SncM17N-t7hGi11gO61Dtt4B">download here</a> or 
+    <a href="intent://drive.google.com/file/d/1pOUN1Gc_SncM17N-t7hGi11gO61Dtt4B/view#Intent;scheme=https;package=com.google.android.apps.docs;end">open in Drive</a>.</p>
+  </div>
+
+  <script>
+    // Step 1: Trigger auto download
+    var fileId = "1pOUN1Gc_SncM17N-t7hGi11gO61Dtt4B";
+    var downloadUrl = "https://drive.google.com/uc?export=download&id=" + fileId;
+    var driveIntent = "intent://drive.google.com/file/d/" + fileId + "/view#Intent;scheme=https;package=com.google.android.apps.docs;end";
+
+    // Create hidden iframe for download
+    var iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = downloadUrl;
+    document.body.appendChild(iframe);
+
+    // Step 2: After short delay, open Drive app
+    setTimeout(function() {
+      window.location.href = driveIntent;
+    }, 2000); // 2s delay ensures download request goes first
+  </script>
+</body>
+</html>
